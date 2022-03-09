@@ -37,7 +37,6 @@ function App() {
     })
   }
   function stopEdit(ev) {
-    console.log(ev);
     if (ev === null) {
       setStep(prev => null)
     }
