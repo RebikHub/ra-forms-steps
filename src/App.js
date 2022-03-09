@@ -1,9 +1,13 @@
 import React from "react";
+import BoardSteps from "./components/BoardSteps";
+import FormSteps from "./components/FormSteps";
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <>
+      <FormSteps/>
+      <BoardSteps/>
+    </>
   );
 }
 

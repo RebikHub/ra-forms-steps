@@ -3,16 +3,93 @@
   padding: 0;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#root {
+  width: 500px;
+  margin: 20px auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.form-steps {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-length {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.btn-steps {
+  width: 80px;
+  height: 20px;
+  align-self: end;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.board-steps {
+  border: 1px solid black;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.board-date {
+
+}
+
+.board-length {
+
+}
+
+.board-action {
+
+}
+
+.board-body {
+
+}
+
+.step {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 0;
+}
+.step-date {
+
+}
+.step-length {
+
+}
+.step-action {
+
+}
+.btn-change, .btn-remove {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.btn-change {
+  background-image: url(../image/edit.png);
+}
+.btn-remove {
+  background-image: url(../image/remove.png);
 }
