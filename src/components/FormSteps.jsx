@@ -1,32 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-export default function FormSteps({onInputData, editData, stopEdit}) {
-  const [form, setForm] = useState({
-    date: '',
-    range: ''
-  })
-
-  function handleDate(ev) {
-    setForm(prevForm => ({...prevForm, date: ev.target.value}))
-  }
-  function handleRange(ev) {
-    setForm(prevForm => ({...prevForm, range: ev.target.value}))
-  }
-  function handleSubmit(ev) {
-    ev.preventDefault()
-    onInputData(form)
-    setForm({
-      date: '',
-      range: ''
-    })
-  }
-
-  if (editData !== null) {
-    setForm({
-      date: editData.date,
-      range: editData.range
-    })
-  }
+export default function FormSteps({onInputData, form, handleDate, handleRange}) {
 
   return (
     <form className="form-steps">
@@ -44,7 +18,7 @@ export default function FormSteps({onInputData, editData, stopEdit}) {
           value={form.range}
           onChange={handleRange}/>
       </div>
-      <button className="btn-steps" type="button" onClick={handleSubmit}>OK</button>
+      <button className="btn-steps" type="button" onClick={() => onInputData(form.date, form.range, form.id)}>OK</button>
     </form>
   )
 }

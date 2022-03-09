@@ -5,17 +5,30 @@ import StepModel from "./components/StepModel";
 
 function App() {
   const [steps, setSteps] = useState([])
-  const [step, setStep] = useState(null)
+  const [form, setForm] = useState({
+    date: '',
+    range: ''
+  })
 
-  function handleFormData(ev) {
-    const step = new StepModel(ev.date, ev.range)
+  function handleDate(ev) {
+    setForm(prevForm => ({...prevForm, date: ev.target.value}))
+  }
+  function handleRange(ev) {
+    setForm(prevForm => ({...prevForm, range: ev.target.value}))
+  }
+
+  function handleFormData(date, range, id) {
+    const step = new StepModel(date, range)
     setSteps(prevSteps => {
       let match = false;
       prevSteps.map((el) => {
-        if (el.date === step.date) {
+        if (el.date === step.date && el.id !== id) {
           const num = +el.range + +step.range
           match = true
           return el.range = num
+        } else if (el.date === step.date && el.id === id) {
+          match = true
+          return el.range = range
         }
         return el;
       })
@@ -23,6 +36,10 @@ function App() {
         return [...prevSteps];
       }
       return [...prevSteps, step]
+    })
+    setForm({
+      date: '',
+      range: ''
     })
   }
 
@@ -32,18 +49,19 @@ function App() {
   function handleEdit(id) {
     steps.forEach((el) => {
       if (el.id === id) {
-        setStep(el)
+        setForm(prevForm => ({
+          ...prevForm,
+          date: el.date,
+          range: el.range,
+          id: el.id
+        }))
       }
     })
   }
-  function stopEdit(ev) {
-    if (ev === null) {
-      setStep(prev => null)
-    }
-  }
+
   return (
     <>
-      <FormSteps onInputData={handleFormData} editData={step} stopEdit={stopEdit}/>
+      <FormSteps onInputData={handleFormData} form={form} handleDate={handleDate} handleRange={handleRange}/>
       <BoardSteps addSteps={steps} onRemove={handleRemove} onEdit={handleEdit}/>
     </>
   );
