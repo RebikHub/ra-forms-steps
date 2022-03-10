@@ -6,7 +6,7 @@ export default function FormSteps({onInputData, form, handleDate, handleRange}) 
     <form className="form-steps">
       <div className="input-date">
         <label htmlFor="date">Дата (ДД.ММ.ГГ)</label>
-        <input type="text"
+        <input type="date"
           name="date"
           value={form.date}
           onChange={handleDate}
@@ -14,7 +14,7 @@ export default function FormSteps({onInputData, form, handleDate, handleRange}) 
       </div>
       <div className="input-range">
         <label htmlFor="range">Пройдено км</label>
-        <input type="text"
+        <input type="number"
           name="range"
           value={form.range}
           onChange={handleRange}
