@@ -9,14 +9,16 @@ export default function FormSteps({onInputData, form, handleDate, handleRange}) 
         <input type="text"
           name="date"
           value={form.date}
-          onChange={handleDate}/>
+          onChange={handleDate}
+          placeholder="дд.мм.гг"/>
       </div>
       <div className="input-range">
         <label htmlFor="range">Пройдено км</label>
         <input type="text"
           name="range"
           value={form.range}
-          onChange={handleRange}/>
+          onChange={handleRange}
+          placeholder="введите число"/>
       </div>
       <button className="btn-steps" type="button" onClick={() => onInputData(form.date, form.range, form.id)}>OK</button>
     </form>
